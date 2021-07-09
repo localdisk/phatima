@@ -14,9 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $foo = [1, 2];
-
-    $hoge = [];
-
     return view('welcome');
 });
