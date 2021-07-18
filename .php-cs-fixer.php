@@ -29,5 +29,6 @@ return $config
         ],
         'not_operator_with_successor_space' => true,
         'array_syntax' => ['syntax' => 'short'],
+        'no_unused_imports' => true,
     ]
     );
