@@ -14,7 +14,7 @@
         "alpinejs": "^2.8.2",
         "autoprefixer": "^10.3.5",
         "laravel-mix": "^6.0.31",
-        "postcss": "^8.3.7",
+        "postcss": "^8.3.8",
         "tailwindcss": "^2.2.15"
     }
 }
