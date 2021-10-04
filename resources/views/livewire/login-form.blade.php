@@ -1,6 +1,5 @@
 <div class="flex items-center justify-center h-screen w-screen">
-  <div class="w-1/5">
-    <h1 class="text-2xl">ログイン</h1>
+  <div class="md:w-1/5 w-full md:p-0 p-2">
     <label class="block my-1 text-lg">
       ユーザー名
       <input type="text" class="w-full">
