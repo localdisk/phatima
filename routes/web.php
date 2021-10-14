@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use App\Http\Livewire\LoginForm;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +18,4 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::view('/login', 'login');
+Route::get('/login', LoginForm::class);

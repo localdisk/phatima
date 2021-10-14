@@ -13,6 +13,3 @@
     </p>
   </div>
 </div>
-@push('scripts')
-    aaa
-@endpush

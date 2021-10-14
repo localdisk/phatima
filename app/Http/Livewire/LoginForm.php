@@ -12,7 +12,7 @@ class LoginForm extends Component
 
     public function login(): void
     {
-        $this->reset();
+
     }
 
     public function render()
