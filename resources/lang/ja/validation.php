@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
 |--------------------------------------------------------------------------
@@ -129,5 +129,11 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+    ],
+    'attributes' => [
+        'name' => '名前',
+        'email' => 'メールアドレス',
+        'password' => 'パスワード',
+        'password_confirmation' => 'パスワードの確認',
     ],
 ];

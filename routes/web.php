@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\LoginForm;
 use App\Http\Livewire\RegisterForm;
 use Illuminate\Support\Facades\Route;
@@ -19,5 +20,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('register', RegisterForm::class);
+Route::get('/register', RegisterForm::class);
 Route::get('/login', LoginForm::class);
+
+Route::get('/dashboard', Dashboard::class);

@@ -2,6 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
+use Auth;
+use Hash;
 use Livewire\Component;
 
 class RegisterForm extends Component
@@ -14,15 +17,23 @@ class RegisterForm extends Component
     protected $rules = [
         'name' => ['required', 'string'],
         'email' => ['required', 'string', 'email'],
-        'password' => ['required', 'string', 'confirmed', 'min:8', 'same:password_confirmation'],
-        'password_confirmation' => ['required', 'string']
+        'password' => ['required', 'string', 'confirmed', 'min:8'],
+        'password_confirmation' => ['required', 'string', 'same:password']
     ];
 
     public function register()
     {
         $this->validate();
 
-        $this->reset();
+        $user = User::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => Hash::make($this->password)
+        ]);
+
+        Auth::login($user);
+
+        return redirect('/dashboard');
     }
     public function render()
     {
