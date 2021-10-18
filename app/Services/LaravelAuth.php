@@ -11,9 +11,11 @@ class LaravelAuth implements AuthInterface
 {
     const MAX_ATTEMPTS = 5;
 
-    public function login(string $email, string $password): bool {
+    public function login(string $email, string $password): bool
+    {
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             $this->clearRateLimit();
+
             return true;
         }
 
@@ -21,27 +23,27 @@ class LaravelAuth implements AuthInterface
         $this->hitRateLimit($email);
 
         return false;
-     }
+    }
 
-     private function hitRateLimit(string $email): void
-     {
+    private function hitRateLimit(string $email): void
+    {
         if (! RateLimiter::tooManyAttempts($this->throttleKey(), self::MAX_ATTEMPTS)) {
             RateLimiter::hit($this->throttleKey());
+
             return;
-         }
+        }
 
-         event(new Lockout(request()->merge(['email' => $this->email])));
-     }
+        event(new Lockout(request()->merge(['email' => $this->email])));
+    }
 
-     private function clearRateLimit(): void
-     {
-         RateLimiter::clear($this->throttleKey());
+    private function clearRateLimit(): void
+    {
+        RateLimiter::clear($this->throttleKey());
 
-         return;
-     }
+    }
 
-     private function throttleKey()
-     {
-         return Str::lower($this->email);
-     }
+    private function throttleKey()
+    {
+        return Str::lower($this->email);
+    }
 }
