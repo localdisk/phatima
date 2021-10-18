@@ -39,7 +39,6 @@ class LaravelAuth implements AuthInterface
     private function clearRateLimit(): void
     {
         RateLimiter::clear($this->throttleKey());
-
     }
 
     private function throttleKey()
