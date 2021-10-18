@@ -10,8 +10,11 @@ use Livewire\Component;
 class RegisterForm extends Component
 {
     public string $name = '';
+
     public string $email = '';
+
     public string $password = '';
+
     public string $password_confirmation = '';
 
     protected $rules = [
@@ -35,6 +38,7 @@ class RegisterForm extends Component
 
         return redirect('/dashboard');
     }
+
     public function render()
     {
         return view('livewire.register-form');
