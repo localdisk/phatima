@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Http\Livewire;
 
@@ -21,7 +23,7 @@ class RegisterForm extends Component
         'name' => ['required', 'string'],
         'email' => ['required', 'string', 'email'],
         'password' => ['required', 'string', 'confirmed', 'min:8'],
-        'password_confirmation' => ['required', 'string', 'same:password']
+        'password_confirmation' => ['required', 'string', 'same:password'],
     ];
 
     public function register()
@@ -31,7 +33,7 @@ class RegisterForm extends Component
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
-            'password' => Hash::make($this->password)
+            'password' => Hash::make($this->password),
         ]);
 
         Auth::login($user);
