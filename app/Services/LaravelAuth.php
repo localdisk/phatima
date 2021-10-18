@@ -33,7 +33,7 @@ class LaravelAuth implements AuthInterface
             return;
         }
 
-        event(new Lockout(request()->merge(['email' => $this->email])));
+        event(new Lockout(request()->merge(['email' => $email])));
     }
 
     private function clearRateLimit(): void
