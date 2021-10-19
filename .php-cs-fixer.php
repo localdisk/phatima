@@ -16,7 +16,7 @@ return $config
     ->setRiskyAllowed(true)
     ->setRules([
         '@PhpCsFixer:risky' => true,
-        'blank_line_after_opening_tag' => false,
+        'blank_line_after_opening_tag' => true,
         'linebreak_after_opening_tag' => false,
         'declare_strict_types' => true,
         'phpdoc_types_order' => [
