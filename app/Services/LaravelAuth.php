@@ -42,7 +42,7 @@ class LaravelAuth implements AuthInterface
 
     }
 
-    private function throttleKey()
+    private function throttleKey(): string
     {
         return Str::lower($this->email);
     }
