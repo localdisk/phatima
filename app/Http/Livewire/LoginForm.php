@@ -47,13 +47,13 @@ class LoginForm extends Component
      */
     private function throttleKey()
     {
-        return Str::lower($this->email) . '|' . $this->ip();
+        return Str::lower($this->email).'|'.$this->ip();
     }
 
     public function ensureIsNotRateLimited()
     {
         // rate limit を超えてないか
-        if (!RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
             return;
         }
 
