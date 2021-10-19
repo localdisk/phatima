@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Services;
 
@@ -11,8 +11,7 @@ class LaravelAuth implements AuthInterface
 {
     const MAX_ATTEMPTS = 5;
 
-    public function login(string $email, string $password): bool
-    {
+    public function login(string $email, string $password): bool {
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             $this->clearRateLimit();
 
