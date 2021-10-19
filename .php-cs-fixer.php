@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 $finder = PhpCsFixer\Finder::create()
     ->in([
@@ -17,63 +15,27 @@ $config = new PhpCsFixer\Config();
 return $config
     ->setRiskyAllowed(true)
     ->setRules([
-        '@PSR2' => true,
         '@PhpCsFixer:risky' => true,
-        'single_blank_line_at_eof' => true,
-        'no_alternative_syntax' => false,
         'blank_line_after_opening_tag' => false,
-        'blank_line_before_statement' => [
-            'statements' => [],
+        'linebreak_after_opening_tag' => false,
+        'declare_strict_types' => true,
+        'phpdoc_types_order' => [
+            'null_adjustment' => 'always_last',
+            'sort_algorithm' => 'none',
         ],
-        'concat_space' => [
-            'spacing' => 'one',
+        'no_superfluous_phpdoc_tags' => false,
+        'global_namespace_import' => [
+            'import_classes' => true,
+            'import_constants' => true,
+            'import_functions' => true,
         ],
-        'increment_style' => [
-            'style' => 'post',
-        ],
-        'multiline_whitespace_before_semicolons' => [
-            'strategy' => 'no_multi_line',
-        ],
-        'no_superfluous_phpdoc_tags' => ['allow_mixed' => true],
-        'ordered_class_elements' => false,
-        'php_unit_internal_class' => false,
-        'php_unit_test_class_requires_covers' => false,
-        'full_opening_tag' => true,
-        'echo_tag_syntax' => [
-            'format' => 'short',
+        'php_unit_test_case_static_method_calls' => [
+            'call_type' => 'this'
         ],
         'phpdoc_align' => [
             'align' => 'left',
         ],
-        'phpdoc_separation' => false,
-        'phpdoc_to_comment' => false,
-        'phpdoc_var_without_name' => false,
-        'single_blank_line_before_namespace' => false,
-        'yoda_style' => false,
-        'single_quote' => true,
-        'array_syntax' => ['syntax' => 'short'],
-        'list_syntax' => ['syntax' => 'short'],
-        'function_typehint_space' => true,
-        'binary_operator_spaces' => true,
-        'no_spaces_around_offset' => true,
-        'no_useless_else' => true,
-        'single_line_comment_style' => [
-            'comment_types' => [
-                'hash',
-            ],
-        ],
-        'braces' => false,
-        'method_argument_space' => false,
-        'return_type_declaration' => ['space_before' => 'none'],
-        'no_unused_imports' => true,
-        'class_attributes_separation' => [
-            'elements' => [
-                'const' => 'one',
-                'method' => 'one',
-                'property' => 'one',
-            ],
-        ],
-        'no_blank_lines_after_phpdoc' => true,
-
+        'not_operator_with_successor_space' => true,
+        'blank_line_after_namespace' => true,
     ])
     ->setFinder($finder);
