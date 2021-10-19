@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 $finder = PhpCsFixer\Finder::create()
     ->in([
@@ -73,7 +75,5 @@ return $config
         ],
         'no_blank_lines_after_phpdoc' => true,
 
-        // 外部ライブラリを継承した時に、return voidとPHPDocを打たないとphpstanで怒られる。
-        'phpdoc_no_empty_return' => false,
     ])
     ->setFinder($finder);

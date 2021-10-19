@@ -34,7 +34,7 @@ class LaravelAuth implements AuthInterface
 
     private function hitRateLimit(string $email): void
     {
-        if (!RateLimiter::tooManyAttempts($this->throttleKey(), self::MAX_ATTEMPTS)) {
+        if (! RateLimiter::tooManyAttempts($this->throttleKey(), self::MAX_ATTEMPTS)) {
             RateLimiter::hit($this->throttleKey());
 
             return;
