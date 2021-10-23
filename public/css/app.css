@@ -568,6 +568,8 @@ video {
 }
 
 *, ::before, ::after {
+	--tw-border-opacity: 1;
+	border-color: rgba(229, 231, 235, var(--tw-border-opacity));
 	--tw-ring-offset-shadow: 0 0 #0000;
 	--tw-ring-shadow: 0 0 #0000;
 	--tw-shadow: 0 0 #0000;
@@ -762,6 +764,9 @@ select {
 .flex {
 	display: flex;
 }
+.table {
+	display: table;
+}
 .h-screen {
 	height: 100vh;
 }
@@ -779,6 +784,9 @@ select {
 }
 .justify-center {
 	justify-content: center;
+}
+.border {
+	border-width: 1px;
 }
 .bg-blue-600 {
 	--tw-bg-opacity: 1;
