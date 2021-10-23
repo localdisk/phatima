@@ -2,22 +2,22 @@
     <div class="md:w-1/5 w-full p-2">
       <label class="block my-1 text-lg">
         ユーザー名
-        <input type="text" wire:model.debounce.500ms="name" class="w-full">
+        <input type="text" wire:model.defer="name" class="w-full">
         @error('name') <p class="text-red-500">{{ $message }}</p> @enderror
       </label>
       <label class="block my-1 text-lg">
         メールアドレス
-        <input type="text" wire:model.500ms="email" class="w-full">
+        <input type="text" wire:model.defer="email" class="w-full">
         @error('email') <p class="text-red-500">{{ $message }}</p> @enderror
       </label>
       <label class="block my-1 text-lg">
         パスワード
-        <input type="password" wire:model.500ms="password" class="w-full">
+        <input type="password" wire:model.defer="password" class="w-full">
         @error('password') <p class="text-red-500">{{ $message }}</p> @enderror
       </label>
       <label class="block my-1 text-lg">
         パスワードの確認
-        <input type="password" wire:model.500ms="password_confirmation" class="w-full">
+        <input type="password" wire:model.defer="password_confirmation" class="w-full">
         @error('password_confirmation') <p class="text-red-500">{{ $message }}</p> @enderror
       </label>
       <p class="my-3">

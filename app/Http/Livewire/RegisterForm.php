@@ -7,6 +7,7 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use Auth;
 use Hash;
+use Illuminate\Auth\Events\Registered;
 use Livewire\Component;
 
 class RegisterForm extends Component
@@ -36,7 +37,9 @@ class RegisterForm extends Component
             'password' => Hash::make($this->password),
         ]);
 
-        Auth::login($user);
+        event(new Registered($user));
+        // email verify
+        // Auth::login($user);
 
         return redirect('/dashboard');
     }

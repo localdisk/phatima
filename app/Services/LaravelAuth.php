@@ -17,6 +17,14 @@ class LaravelAuth implements AuthInterface
     {
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             $this->clearRateLimit();
+            // email 認証
+            $user = Auth::user();
+
+            if (Auth::user()->hasVerifiedEmail()) {
+                return redirect()->intended(route('dashboard'));
+            }
+
+            $user->sendEmailVerificationNotification();
 
             return true;
         }
@@ -32,6 +40,7 @@ class LaravelAuth implements AuthInterface
         Auth::logout();
 
         session()->invalidate();
+        session()->regenerateToken();
     }
 
     private function hitRateLimit(string $email): void
