@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 use App\Http\Livewire\Dashboard;
-use App\Http\Livewire\EmailVerify;
 use App\Http\Livewire\LoginForm;
 use App\Http\Livewire\RegisterForm;
+use App\Http\Livewire\VerifyEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +32,7 @@ Route::get('/login', LoginForm::class)->middleware('guest')->name('login');
 Route::get('/dashboard', Dashboard::class)->middleware('auth')->name('dashboard');
 
 // verification email
-Route::get('/email/verify', EmailVerify::class)->middleware('auth')->name('verification.notice');
+Route::get('/email/verify', VerifyEmail::class)->middleware('auth')->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
     return redirect('/home');
