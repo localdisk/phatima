@@ -24,13 +24,16 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/register', RegisterForm::class)->name('register');
-Route::get('/login', LoginForm::class)->name('login');
-Route::get('/dashboard', Dashboard::class)->name('dashboard')->middleware('auth');
+// register user
+Route::get('/register', RegisterForm::class)->middleware('guest')->name('register');
 
+// login
+Route::get('/login', LoginForm::class)->middleware('guest')->name('login');
+Route::get('/dashboard', Dashboard::class)->middleware('auth')->name('dashboard');
+
+// verification email
 Route::get('/email/verify', EmailVerify::class)->middleware('auth')->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
-
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');

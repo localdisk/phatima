@@ -38,8 +38,8 @@ class RegisterForm extends Component
         ]);
 
         event(new Registered($user));
-        // email verify
-        // Auth::login($user);
+
+        Auth::login($user);
 
         return redirect('/dashboard');
     }
