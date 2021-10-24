@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 $finder = PhpCsFixer\Finder::create()
     ->in([
@@ -37,5 +39,6 @@ return $config
         ],
         'not_operator_with_successor_space' => true,
         'blank_line_after_namespace' => true,
+        'no_unused_imports' => true,
     ])
     ->setFinder($finder);
