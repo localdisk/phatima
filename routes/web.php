@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\EmailVerify;
 use App\Http\Livewire\LoginForm;
 use App\Http\Livewire\RegisterForm;
 use App\Http\Livewire\VerifyEmail;
