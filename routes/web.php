@@ -35,5 +35,6 @@ Route::get('/dashboard', Dashboard::class)->middleware('auth')->name('dashboard'
 Route::get('/email/verify', VerifyEmail::class)->middleware('auth')->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
+
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
