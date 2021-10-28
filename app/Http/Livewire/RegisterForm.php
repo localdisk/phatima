@@ -41,7 +41,7 @@ class RegisterForm extends Component
 
         Auth::login($user);
 
-        return redirect('/dashboard');
+        return redirect()->route('verification.notice');
     }
 
     public function render()
