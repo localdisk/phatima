@@ -21,11 +21,6 @@ class LoginForm extends Component
         'password' => ['required', 'string', 'min:8'],
     ];
 
-    public function updated(string $property): void
-    {
-        $this->validateOnly($property);
-    }
-
     public function login()
     {
         $this->validate();

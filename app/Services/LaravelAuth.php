@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
+use Illuminate\Hashing\HashManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
@@ -13,7 +15,23 @@ class LaravelAuth implements AuthInterface
 {
     const MAX_ATTEMPTS = 5;
 
-    public function login(string $email, string $password): bool
+    private HashManager $hash;
+
+    public function register(string $name, string $email, string $password): User
+    {
+        return User::create([
+            'name' => $name,
+            'email' => $email,
+            'password' => $this->hash->make($password)
+        ]);
+    }
+
+    public function login(User $user): void
+    {
+        Auth::login($user);
+    }
+
+    public function attempt(string $email, string $password): bool
     {
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             $this->clearRateLimit();

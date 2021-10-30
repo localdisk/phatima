@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire;
 
-use App\Models\User;
-use Auth;
-use Hash;
+use App\Services\AuthInterface;
 use Illuminate\Auth\Events\Registered;
 use Livewire\Component;
 
@@ -20,6 +18,8 @@ class RegisterForm extends Component
 
     public string $password_confirmation = '';
 
+    private AuthInterface $auth;
+
     protected $rules = [
         'name' => ['required', 'string'],
         'email' => ['required', 'string', 'email'],
@@ -27,19 +27,20 @@ class RegisterForm extends Component
         'password_confirmation' => ['required', 'string', 'same:password'],
     ];
 
+    public function mount(AuthInterface $auth): void
+    {
+        $this->auth = $auth;
+    }
+
     public function register()
     {
         $this->validate();
 
-        $user = User::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'password' => Hash::make($this->password),
-        ]);
+        $user = $this->auth->register($this->name, $this->email, $this->password);
 
         event(new Registered($user));
 
-        Auth::login($user);
+        $this->auth->login($user);
 
         return redirect()->route('verification.notice');
     }

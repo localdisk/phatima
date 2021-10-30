@@ -1,3 +1,3 @@
-<div>
-    メール送った
+<div class="flex items-center justify-center h-screen w-screen">
+    <p>aa</p>
 </div>
