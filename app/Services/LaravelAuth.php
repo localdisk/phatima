@@ -17,6 +17,11 @@ class LaravelAuth implements AuthInterface
 
     private HashManager $hash;
 
+    public function __construct(HashManager $hash)
+    {
+        $this->hash = $hash;
+    }
+
     public function register(string $name, string $email, string $password): User
     {
         return User::create([
