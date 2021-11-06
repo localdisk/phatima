@@ -1,22 +1,22 @@
 <div class="flex items-center justify-center h-screen w-screen">
     <div class="md:w-1/5 w-full p-2">
       <label class="block my-1 text-lg">
-        ユーザー名
+        {{ __('Username') }}
         <input type="text" wire:model.defer="name" class="w-full">
         @error('name') <p class="text-red-500">{{ $message }}</p> @enderror
       </label>
       <label class="block my-1 text-lg">
-        メールアドレス
+        {{ __('Email') }}
         <input type="text" wire:model.defer="email" class="w-full">
         @error('email') <p class="text-red-500">{{ $message }}</p> @enderror
       </label>
       <label class="block my-1 text-lg">
-        パスワード
+        {{ __('Password') }}
         <input type="password" wire:model.defer="password" class="w-full">
         @error('password') <p class="text-red-500">{{ $message }}</p> @enderror
       </label>
       <label class="block my-1 text-lg">
-        パスワードの確認
+        {{ __('Confirm Password') }}
         <input type="password" wire:model.defer="password_confirmation" class="w-full">
         @error('password_confirmation') <p class="text-red-500">{{ $message }}</p> @enderror
       </label>
