@@ -30,9 +30,19 @@ class LoginForm extends Component
         return redirect('dashboard');
     }
 
+    public function updated($name)
+    {
+        $this->validateOnly($name);
+    }
+
     public function render()
     {
         return view('livewire.login-form');
+    }
+
+    public function passwordReset()
+    {
+        return redirect()->route('password_reset');
     }
 
     /**
