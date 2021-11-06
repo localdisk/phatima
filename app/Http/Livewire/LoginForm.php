@@ -16,10 +16,15 @@ class LoginForm extends Component
 
     public string $password = '';
 
-    protected $rules = [
+    private $rules = [
         'email' => ['required', 'string', 'email'],
         'password' => ['required', 'string', 'min:8'],
     ];
+
+    public function updated($name)
+    {
+        $this->validateOnly($name);
+    }
 
     public function login()
     {
@@ -28,11 +33,6 @@ class LoginForm extends Component
         session()->regenerate();
 
         return redirect('dashboard');
-    }
-
-    public function updated($name)
-    {
-        $this->validateOnly($name);
     }
 
     public function render()
