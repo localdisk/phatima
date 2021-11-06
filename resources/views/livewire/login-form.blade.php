@@ -2,12 +2,12 @@
   <div class="md:w-1/5 w-full p-2">
     <p>@error('login') <p class="text-red-500">{{ $message }}</p> @enderror</p>
     <label class="block my-1 text-lg">
-      メールアドレス
+      {{ __('Email') }}
       <input type="text" wire:model.debounce.500ms="email" class="w-full">
       @error('email') <p class="text-red-500">{{ $message }}</p> @enderror
     </label>
     <label class="block my-1 text-lg">
-      パスワード
+      {{ __('Password') }}
       <input type="password" wire:model.lazy="password" class="w-full">
       @error('password') <p class="text-red-500">{{ $message }}</p> @enderror
     </label>
