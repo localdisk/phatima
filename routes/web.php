@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\LoginForm;
+use App\Http\Livewire\NewPasswordForm;
 use App\Http\Livewire\PasswordResetForm;
 use App\Http\Livewire\RegisterForm;
 use App\Http\Livewire\VerifyEmail;
@@ -35,5 +36,6 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 // pasword reset
-Route::get('/password_reset', PasswordResetForm::class)->middleware('guest')->name('password.request');
+Route::get('/password/request', PasswordResetForm::class)->middleware('guest')->name('password.request');
+Route::get('/password/reset', NewPasswordForm::class)->middleware('guest')->name('password.reset');
 Route::get('/dashboard', Dashboard::class)->middleware('auth')->name('dashboard');

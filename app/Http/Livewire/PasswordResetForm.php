@@ -11,6 +11,8 @@ class PasswordResetForm extends Component
 {
     public string $email = '';
 
+    public string $status = '';
+
     protected $rules = [
         'email' => ['required', 'string', 'email'],
     ];
@@ -24,11 +26,9 @@ class PasswordResetForm extends Component
     {
         $this->validate();
 
-        $status = Password::sendResetLink(['email' => $this->email]);
+        $this->status = __(Password::sendResetLink(['email' => $this->email]));
 
-        dd($status);
-
-        return redirect()->back()->with('status', __($status));
+        return redirect()->back();
     }
 
     public function render()

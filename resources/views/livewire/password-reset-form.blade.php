@@ -3,6 +3,7 @@
     <p>
       {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
     </p>
+
     <label class="block my-1 text-lg">
       <p>{{ __('Email') }}</p>
       <div class="flex">
@@ -12,5 +13,9 @@
       </div>
       @error('email') <p class="text-red-500 flex-none">{{ $message }}</p> @enderror
     </label>
+
+    @if ($status)
+        <p>{{ $status }}</p>
+    @endif
   </div>
 </div>
