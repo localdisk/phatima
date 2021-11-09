@@ -35,5 +35,5 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 // pasword reset
-Route::get('/password_reset', PasswordResetForm::class)->middleware('guest')->name('password_reset');
+Route::get('/password_reset', PasswordResetForm::class)->middleware('guest')->name('password.request');
 Route::get('/dashboard', Dashboard::class)->middleware('auth')->name('dashboard');

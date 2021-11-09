@@ -24,7 +24,7 @@ class PasswordResetForm extends Component
     {
         $this->validate();
 
-        $status = Password::sendResetLink($this->email);
+        $status = Password::sendResetLink(['email' => $this->email]);
 
         dd($status);
 
