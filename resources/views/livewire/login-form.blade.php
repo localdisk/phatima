@@ -1,6 +1,6 @@
 <div class="flex items-center justify-center h-screen w-screen">
   <div class="md:w-1/5 w-full p-2">
-    <p>@error('login') <p class="text-red-500">{{ $message }}</p> @enderror</p>
+    @error('login') <p class="text-red-500">{{ $message }}</p> @enderror
     <label class="block my-1 text-lg">
       {{ __('Email') }}
       <input type="text" wire:model.debounce.500ms="email" class="w-full">
