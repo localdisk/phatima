@@ -797,19 +797,12 @@ select {
 .justify-center {
 	justify-content: center;
 }
-.rounded-md {
-	border-radius: 0.375rem;
-}
 .border {
 	border-width: 1px;
 }
 .bg-blue-600 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
-}
-.bg-blue-700 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
 }
 .p-2 {
 	padding: 0.5rem;
@@ -840,9 +833,6 @@ select {
 	font-size: 1.125rem;
 	line-height: 1.75rem;
 }
-.font-semibold {
-	font-weight: 600;
-}
 .text-gray-500 {
 	--tw-text-opacity: 1;
 	color: rgba(107, 114, 128, var(--tw-text-opacity));
@@ -854,10 +844,6 @@ select {
 .text-white {
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
-.text-blue-600 {
-	--tw-text-opacity: 1;
-	color: rgba(37, 99, 235, var(--tw-text-opacity));
 }
 .text-blue-700 {
 	--tw-text-opacity: 1;
