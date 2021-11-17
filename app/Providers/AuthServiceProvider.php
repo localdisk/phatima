@@ -28,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-        $this->app->bind(AuthInterface::class, function($app) {
+        $this->app->bind(AuthInterface::class, function ($app) {
             return new LaravelAuth($app->make(HashManager::class));
         });
     }
