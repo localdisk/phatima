@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use Illuminate\Http\Request;
 use Livewire\Component;
 
 class PasswordResetForm extends Component
