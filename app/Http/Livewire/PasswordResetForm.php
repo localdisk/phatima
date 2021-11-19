@@ -2,9 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
@@ -35,7 +33,7 @@ class PasswordResetForm extends Component
             [$this->email, $this->password, $this->password_confirmation, $this->token],
             function ($user) {
                 $user->forceFill([
-                    'password' => Hash::make($request->password),
+                    'password' => Hash::make($this->password),
                     'remember_token' => Str::random(60),
                 ])->save();
 

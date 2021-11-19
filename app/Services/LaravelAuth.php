@@ -27,7 +27,7 @@ class LaravelAuth implements AuthInterface
         return User::create([
             'name' => $name,
             'email' => $email,
-            'password' => $this->hash->make($password)
+            'password' => $this->hash->make($password),
         ]);
     }
 
