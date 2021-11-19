@@ -2,7 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class PasswordResetForm extends Component
@@ -11,7 +16,34 @@ class PasswordResetForm extends Component
 
     public string $email = '';
 
+    public string $password = '';
+
+    public string $password_confirmation = '';
+
+    protected $rules = [
+        'password' => ['required', 'string', 'confirmed', 'min:8'],
+        'password_confirmation' => ['required', 'string', 'same:password'],
+    ];
+
     protected $queryString = ['token', 'email'];
+
+    public function resetPassword()
+    {
+        $this->validate();
+
+        $status = Password::reset(
+            [$this->email, $this->password, $this->password_confirmation, $this->token],
+            function ($user) {
+                $user->forceFill([
+                    'password' => Hash::make($request->password),
+                    'remember_token' => Str::random(60),
+                ])->save();
+
+                event(new PasswordReset($user));
+            }
+        );
+
+    }
 
     public function render()
     {

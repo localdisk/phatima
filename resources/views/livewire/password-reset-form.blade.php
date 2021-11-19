@@ -1,5 +1,6 @@
 <div class="flex items-center justify-center h-screen w-screen">
   <div class="md:w-1/5 w-full p-2">
+    <input type="hidden" name="token" wire:model="token">
     <label class="block my-1 text-lg">
       {{ __('Password') }}
       <input type="password" wire:model.defer="password" class="w-full">
