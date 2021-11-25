@@ -42,7 +42,6 @@ class PasswordResetForm extends Component
                 event(new PasswordReset($user));
             }
         );
-
     }
 
     public function render()
