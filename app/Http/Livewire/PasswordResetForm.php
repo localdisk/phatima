@@ -46,7 +46,6 @@ class PasswordResetForm extends Component
                     ? redirect()->route('login')->with('status', __($status))
                     : back()->withInput([$this->email])
                             ->withErrors(['email' => __($status)]);
-
     }
 
     public function render()
