@@ -9,10 +9,6 @@
 </head>
 
 <body>
-    <h1 class="text-3xl font-bold underline text-orange-500">
-        Hello world!
-    </h1>
-    <div class="text-orange-50"> hoge</div>
 </body>
 
 </html>
