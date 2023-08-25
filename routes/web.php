@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $a = ['benin' => 'bj', 'Burkina Faso' => 'bf'];
+    $countries = [['label' => 'Benin', 'value' => 'bj'], ['label' => 'Burkina Faso', 'value' => 'bf'], ['label' => 'Ghana', 'value' => 'gh'], ['label' => 'Nigeria', 'value' => 'ng'], ['label' => 'Kenya', 'value' => 'ke']];
+
+    return view('welcome', compact('countries'));
 });
+
+Route::post('/test', function () {
+    dd(request()->all());
+})->name('test');
