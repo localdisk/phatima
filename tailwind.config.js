@@ -1,15 +1,22 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
     content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
-        "./node_modules/flowbite/**/*.js",
+        // You will probably also need those lines
+        "./resources/**/**/*.blade.php",
+        "./resources/**/**/*.js",
+        "./app/View/Components/**/**/*.php",
+        "./app/Livewire/**/**/*.php",
+
+        // Add mary
+        "./vendor/robsontenorio/mary/src/View/Components/**/*.php"
     ],
     theme: {
         extend: {},
     },
+
+    // Add daisyUI
     plugins: [
+        require("daisyui"),
         require('@tailwindcss/typography'),
-    ],
+    ]
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Welcome;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $a = ['benin' => 'bj', 'Burkina Faso' => 'bf'];
-    $countries = [['label' => 'Benin', 'value' => 'bj'], ['label' => 'Burkina Faso', 'value' => 'bf'], ['label' => 'Ghana', 'value' => 'gh'], ['label' => 'Nigeria', 'value' => 'ng'], ['label' => 'Kenya', 'value' => 'ke']];
-
-    return view('welcome', compact('countries'));
-});
-
-Route::post('/test', function () {
-    dd(request()->all());
-})->name('test');
+Route::get('/', Welcome::class);

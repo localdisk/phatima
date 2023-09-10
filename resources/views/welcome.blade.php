@@ -12,17 +12,7 @@
 </head>
 
 <body class="container mx-auto">
-
-    {{-- @yield('content') --}}
-
-    @php
-    @endphp
-
-    <form action="{{ route('test') }}" method="POST">
-        @csrf
-        <x-bladewind.select name="country" data="{{ json_encode($countries) }}" />
-        <x-bladewind.button can_submit="true">subscribe now</x-bladewind.button>
-    </form>
+    a
 </body>
 
 </html>
