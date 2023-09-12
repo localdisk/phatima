@@ -39,10 +39,12 @@
         <x-slot:sidebar drawer="main-drawer" class="bg-white shadow !overflow-y-hidden">
 
             <!-- Activate menu item when route matches `link` property -->
-            <x-menu activate-by-route>
+            <x-menu activate-by-route active-bg-color="bg-white">
                 <x-menu-item title="Home" icon="o-home" class="text-lg" link="###" />
                 <x-menu-item title="Post" icon="o-pencil-square" class="text-lg" link="###" />
-                <x-menu-item title="Tag" icon="o-tag" class="text-lg" link="###" />
+                <x-menu-sub title="Tag" icon="o-tag" class="text-lg" link="###">
+                    <x-menu-item title="Wifi" icon="o-wifi" />
+                </x-menu-sub>
             </x-menu>
         </x-slot:sidebar>
 
