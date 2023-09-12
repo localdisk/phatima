@@ -40,8 +40,9 @@
 
             <!-- Activate menu item when route matches `link` property -->
             <x-menu activate-by-route>
-                <x-menu-item title="Home" icon="o-pencil-square" class="text-lg" link="###" />
-                <x-menu-item title="Messages" icon="o-envelope" class="text-lg" link="###" />
+                <x-menu-item title="Home" icon="o-home" class="text-lg" link="###" />
+                <x-menu-item title="Post" icon="o-pencil-square" class="text-lg" link="###" />
+                <x-menu-item title="Tag" icon="o-tag" class="text-lg" link="###" />
             </x-menu>
         </x-slot:sidebar>
 
