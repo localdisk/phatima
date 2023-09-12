@@ -43,7 +43,7 @@
                 <x-menu-item title="Home" icon="o-home" class="text-lg" link="###" />
                 <x-menu-item title="Post" icon="o-pencil-square" class="text-lg" link="###" />
                 <x-menu-sub title="Tag" icon="o-tag" class="text-lg" link="###">
-                    <x-menu-item title="Wifi" icon="o-wifi" />
+                    <x-menu-item title="Wifi" icon="o-wifi" class="text-lg" />
                 </x-menu-sub>
             </x-menu>
         </x-slot:sidebar>
