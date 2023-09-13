@@ -7,6 +7,7 @@
     <title>{{ $title ?? config('app.name') }}</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @stack('css')
 </head>
 
 <body class="min-h-screen font-sans antialiased">
@@ -59,6 +60,7 @@
             {{ $slot }}
         </x-slot:content>
     </x-main>
+    @stack('script')
 </body>
 
 </html>
