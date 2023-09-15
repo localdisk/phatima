@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <title>{{ $title ?? config('app.name') }}</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -29,7 +30,11 @@
         <!-- Right side actions -->
         <x-slot:actions>
             <x-dropdown right label="localdisk" class="bg-white border-none text-lg font-normal hover:bg-white">
-                <x-menu-item title="Logtout" icon="o-arrow-right-on-rectangle" class="text-base px-6" />
+                <form action="{{ route('logout') }}" method="POST" x-data>
+                    @csrf
+                    <x-menu-item title="Logtout" icon="o-arrow-right-on-rectangle" @click.prevent="$root.submit();"
+                        class="text-base px-6" />
+                </form>
             </x-dropdown>
         </x-slot:actions>
     </x-nav>

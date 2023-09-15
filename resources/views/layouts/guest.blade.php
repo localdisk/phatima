@@ -11,7 +11,7 @@
 </head>
 
 <body class="min-h-screen font-sans antialiased">
-    {{ $slot }}
+    @yield('content')
     @stack('script')
 </body>
 
