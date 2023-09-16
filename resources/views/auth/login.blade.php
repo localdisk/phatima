@@ -1,7 +1,7 @@
 @extends('layouts.guest')
 
 @section('content')
-    <form action="/login" method="POST" class="h-screen w-screen flex items-center justify-center bg-gray-100">
+    <form action="{{ route('login') }}" method="POST" class="h-screen w-screen flex items-center justify-center bg-gray-100">
         @csrf
         <div class="bg-gray-100 w-1/5">
             @if ($errors->any())
