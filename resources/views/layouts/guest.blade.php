@@ -7,15 +7,11 @@
     <title>{{ $title ?? config('app.name') }}</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link href="{{ asset('vendor/bladewind/css/animate.min.css') }}" rel="stylesheet" />
-    {{-- <link href="{{ asset('vendor/bladewind/css/bladewind-ui.min.css') }}" rel="stylesheet" /> --}}
     @stack('css')
 </head>
 
 <body class="min-h-screen font-sans antialiased">
-    @yield('content')
-
-    <script src="{{ asset('vendor/bladewind/js/helpers.js') }}"></script>
+    {{ $slot }}
     @stack('script')
 </body>
 
