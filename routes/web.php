@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Contracts\RegisterViewResponse;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +21,14 @@ Route::get('/', function () {
 })->name('home');
 
 Route::prefix('admin')->group(function () {
+
+    Route::get('/register', function () {
+        return app(RegisterViewResponse::class);
+    })->name('register');
+
     Route::get('/dashboard', Dashboard::class);
+
 })->middleware([
+    // 作り終わったら
 
 ]);
