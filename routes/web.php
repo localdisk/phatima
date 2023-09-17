@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
+use App\Livewire\Admin\Login as AdminLogin;
+use App\Livewire\Admin\Register;
 use App\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
-use Laravel\Fortify\Contracts\RegisterViewResponse;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,10 @@ Route::get('/', function () {
 
 Route::prefix('admin')->group(function () {
 
-    Route::get('/register', function () {
-        return app(RegisterViewResponse::class);
-    })->name('register');
+    Route::get('/register', Register::class)->name('register');
+    Route::get('/login', AdminLogin::class);
 
-    Route::get('/dashboard', Dashboard::class);
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
 })->middleware([
     // 作り終わったら

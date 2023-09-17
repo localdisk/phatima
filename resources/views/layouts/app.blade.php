@@ -30,11 +30,11 @@
         <!-- Right side actions -->
         <x-slot:actions>
             <x-dropdown right label="localdisk" class="bg-white border-none text-lg font-normal hover:bg-white">
-                <form action="{{ route('logout') }}" method="POST" x-data>
+                {{-- <form action="{{ route('logout') }}" method="POST" x-data>
                     @csrf
                     <x-menu-item title="Logtout" icon="o-arrow-right-on-rectangle" @click.prevent="$root.submit();"
                         class="text-base px-6" />
-                </form>
+                </form> --}}
             </x-dropdown>
         </x-slot:actions>
     </x-nav>
