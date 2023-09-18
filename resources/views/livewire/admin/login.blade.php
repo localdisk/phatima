@@ -13,6 +13,12 @@
                     <x-input label="Password" wire:model="form.password" name="password" placeholder="Password"
                         type="password" />
                 </div>
+                <div class="mb-6">
+                    <x-checkbox label="ログインしたままにする" wire:model="form.remember" class="checkbox-success" />
+                </div>
+                <div>
+                    <a href="">パスワードを忘れた場合</a>
+                </div>
                 <x-button type="submit" label="Login" class="btn-success w-full !text-white text-lg mt-6" />
             </x-card>
         </div>

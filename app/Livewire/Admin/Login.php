@@ -24,7 +24,7 @@ class Login extends Component
         Auth::attempt([
             'email' => $this->form->email,
             'password' => $this->form->password,
-        ]);
+        ], $this->form->remember);
 
         return redirect(route('dashboard'));
     }

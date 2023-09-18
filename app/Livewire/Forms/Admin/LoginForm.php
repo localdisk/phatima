@@ -14,4 +14,6 @@ class LoginForm extends Form
 
     #[Rule('required')]
     public string $password = '';
+
+    public bool $remember = false;
 }
