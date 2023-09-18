@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Admin\LogoutController;
 use App\Livewire\Admin\Login as AdminLogin;
 use App\Livewire\Admin\Register;
 use App\Livewire\Dashboard;
@@ -24,7 +25,8 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
 
     Route::get('/register', Register::class)->name('register');
-    Route::get('/login', AdminLogin::class);
+    Route::get('/login', AdminLogin::class)->name('login');
+    Route::post('/logout', LogoutController::class)->name('logout');
 
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
