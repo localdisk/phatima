@@ -7,19 +7,19 @@
             <x-card title="Login" shadow separator class="w-full">
                 <div class="mb-6">
                     <x-input label="Email" wire:model="form.email" name="email" placeholder="Mail Address"
-                        type="email" />
+                        type="email" class="no-border" />
                 </div>
                 <div class="mb-6">
                     <x-input label="Password" wire:model="form.password" name="password" placeholder="Password"
-                        type="password" />
+                        type="password" class="no-border" />
                 </div>
                 <div class="mb-6">
-                    <x-checkbox label="ログインしたままにする" wire:model="form.remember" class="checkbox-success" />
+                    <x-checkbox label="ログインしたままにする" wire:model="form.remember" class="no-border" />
                 </div>
                 <div>
                     <a href="">パスワードを忘れた場合</a>
                 </div>
-                <x-button type="submit" label="Login" class="btn-success w-full !text-white text-lg mt-6" />
+                <x-button type="submit" label="Login" class="btn-primary w-full !text-white text-lg mt-6" />
             </x-card>
         </div>
     </form>

@@ -7,3 +7,7 @@
         @apply text-lg;
     }
 }
+
+.no-border {
+    @apply border-base-300
+}

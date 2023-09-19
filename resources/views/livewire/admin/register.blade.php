@@ -6,21 +6,23 @@
             @enderror
             <x-card title="Register" shadow separator class="w-full">
                 <div class="mb-6">
-                    <x-input wire:model="form.name" label="Name" placeholder="Name" type="text" />
+                    <x-input wire:model="form.name" label="Name" placeholder="Name" type="text"
+                        class="no-border" />
                 </div>
                 <div class="mb-6">
                     <x-input label="Email" wire:model="form.email" name="email" placeholder="Mail Address"
-                        type="email" />
+                        type="email" class="no-border" />
                 </div>
                 <div class="mb-6">
                     <x-input label="Password" wire:model="form.password" name="password" placeholder="Password"
-                        type="password" />
+                        type="password" class="no-border" />
                 </div>
                 <div>
                     <x-input label="Password Confirmation" wire:model="form.password_confirmation"
-                        name="password_confirmation" placeholder="Password Confirmation" type="password" />
+                        name="password_confirmation" placeholder="Password Confirmation" type="password"
+                        class="no-border" />
                 </div>
-                <x-button type="submit" label="Register" class="btn-success w-full !text-white text-lg mt-6" />
+                <x-button type="submit" label="Register" class="btn-primary w-full !text-white text-lg mt-6" />
             </x-card>
         </div>
     </form>
