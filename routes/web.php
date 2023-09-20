@@ -37,6 +37,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/forgot-password', PasswordReset::class)->name('password.request');
     Route::get('/reset-password/{token}', NewPassword::class)->name('password.reset');
 
+    // メール認証
+
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
 })->middleware([

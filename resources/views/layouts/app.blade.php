@@ -63,8 +63,10 @@
         </x-slot:sidebar>
 
         <!-- The `$slot` goes here -->
-        <x-slot:content>
-            {{ $slot }}
+        <x-slot:content class="!p-0 bg-gray-100">
+            <div class="p-5">
+                {{ $slot }}
+            </div>
         </x-slot:content>
     </x-main>
     @stack('script')
