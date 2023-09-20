@@ -1,13 +1,9 @@
 <div class="bg-gray-100">
     <form wire:submit="register" method="POST" class="w-screen h-screen flex justify-center items-center">
         <div class="bg-gray-100 w-1/5">
-            @error('email')
-                <x-button label="{{ __('auth.failed') }}" class="bg-red-400 w-full mb-6 text-white" />
-            @enderror
             <x-card title="Register" shadow separator class="w-full">
                 <div class="mb-6">
-                    <x-input wire:model="form.name" label="Name" placeholder="Name" type="text"
-                        class="no-border" />
+                    <x-input wire:model="form.name" label="Name" placeholder="Name" type="text" class="no-border" />
                 </div>
                 <div class="mb-6">
                     <x-input label="Email" wire:model="form.email" name="email" placeholder="Mail Address"

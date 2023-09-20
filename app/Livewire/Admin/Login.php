@@ -28,7 +28,7 @@ class Login extends Component
             return $this->redirect(Dashboard::class);
         }
 
-        session()->flash('error', 'ユーザー名かパスワードが間違っています');
+        session()->flash('message', 'ユーザー名かパスワードが間違っています');
 
         return $this->redirect(Login::class);
     }

@@ -1,7 +1,9 @@
 <div class="bg-gray-100">
-    @if (session('error'))
-        <div class="mb-6">
-            <x-alert title="ユーザー名かパスワードが間違っています" icon="o-exclamation-triangle" class="alert-error" />
+    @if (session('message'))
+        <div class="mb-6 ">
+            <x-alert icon="o-exclamation-triangle" class="alert-error flex justify-center">
+                <p class="font-semibold">{{ __('auth.failed') }}</p>
+            </x-alert>
         </div>
     @endif
     <form wire:submit="login" method="POST" class="w-screen h-screen flex justify-center items-center">
@@ -19,7 +21,7 @@
                     <x-checkbox label="ログインしたままにする" wire:model="form.remember" class="no-border" />
                 </div>
                 <div>
-                    <a href="">パスワードを忘れた場合</a>
+                    <a href="{{ route('password.request') }}">パスワードを忘れた場合</a>
                 </div>
                 <x-button type="submit" label="Login" class="btn-primary w-full !text-white text-lg mt-6" />
             </x-card>
