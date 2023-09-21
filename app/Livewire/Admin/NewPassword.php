@@ -49,12 +49,16 @@ class NewPassword extends Component
             },
         );
 
-        session('message', __($status));
+        session()->flash('status', __($status));
         if ($status === Password::PASSWORD_RESET) {
-            $this->redirect(Login::class);
+            session()->flash('type', 'info');
+
+            return $this->redirect(Login::class);
         }
 
-        $this->redirect(Login::class);
+        session()->flash('type', 'error');
+
+        return $this->redirect(Login::class);
 
     }
 

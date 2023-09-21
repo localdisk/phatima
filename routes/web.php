@@ -24,18 +24,23 @@ Route::get('/', function () {
     return 'home';
 })->name('home');
 
-Route::prefix('admin')->group(function () {
-
-    // ユーザー登録
-    Route::get('/register', Register::class)->name('register');
-
-    // ログイン/ログアウト
+Route::middleware('guest')->group(function () {
+    // ログイン
     Route::get('/login', AdminLogin::class)->name('login');
-    Route::post('/logout', LogoutController::class)->name('logout');
 
     // パスワードリセット
     Route::get('/forgot-password', PasswordReset::class)->name('password.request');
     Route::get('/reset-password/{token}', NewPassword::class)->name('password.reset');
+
+});
+
+Route::prefix('admin')->group(function () {
+
+    // ログアウト
+    Route::post('/logout', LogoutController::class)->name('logout');
+
+    // 登録
+    Route::get('/register', Register::class)->name('register');
 
     // メール認証
 

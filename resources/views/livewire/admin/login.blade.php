@@ -1,8 +1,9 @@
 <div class="bg-gray-100">
-    @if (session('message'))
+    @if (session()->has('status'))
         <div class="mb-6 ">
-            <x-alert icon="o-exclamation-triangle" class="alert-error flex justify-center">
-                <p class="font-semibold">{{ __('auth.failed') }}</p>
+            <x-alert icon="o-exclamation-triangle"
+                class="alert-{{ session('type') ? session('type') : 'info' }} flex justify-center">
+                <p class="font-semibold">{{ session('status') }}</p>
             </x-alert>
         </div>
     @endif
