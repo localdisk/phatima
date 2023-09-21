@@ -51,7 +51,7 @@ class NewPassword extends Component
 
         session()->flash('status', __($status));
         if ($status === Password::PASSWORD_RESET) {
-            session()->flash('type', 'info');
+            session()->flash('type', 'success');
 
             return $this->redirect(Login::class);
         }
