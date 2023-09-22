@@ -44,7 +44,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/email/verify', EmailVerify::class)->name('verification.notice')->middleware('auth');
     Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
         $request->fulfill();
-        session()->flash('status', )
+
         return redirect(route('dashboard'));
     })->middleware(['auth', 'signed'])->name('verification.verify');
 

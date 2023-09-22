@@ -57,12 +57,11 @@
         <!-- The `$slot` goes here -->
         <x-slot:content class="!p-0 bg-gray-50">
             <div class="flex justify-center mt-12">
-                <x-card class="w-3/4">
+                <x-card class="lg:w-3/4 w-5/6">
                     {{ $slot }}
                 </x-card>
             </div>
         </x-slot:content>
-
     </x-main>
 </body>
 
