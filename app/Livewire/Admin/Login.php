@@ -8,7 +8,6 @@ use App\Livewire\Dashboard;
 use App\Livewire\Forms\Admin\LoginForm;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -16,13 +15,6 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public EmailVerificationRequest $request;
-
-    public function mount()
-    {
-        $this->request = app(EmailVerificationRequest::class);
-    }
-
     public LoginForm $form;
 
     public function login()
