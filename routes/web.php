@@ -3,11 +3,13 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Admin\LogoutController;
+use App\Livewire\Admin\EmailVerify;
 use App\Livewire\Admin\Login as AdminLogin;
 use App\Livewire\Admin\NewPassword;
 use App\Livewire\Admin\Register;
 use App\Livewire\Dashboard;
 use App\Livewire\PasswordReset;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,25 +26,27 @@ Route::get('/', function () {
     return 'home';
 })->name('home');
 
-Route::middleware('guest')->group(function () {
-    // ログイン
-    Route::get('/login', AdminLogin::class)->name('login');
+Route::prefix('admin')->group(function () {
+    // ログイン/ログアウト
+    Route::get('/login', AdminLogin::class)->name('login')->middleware('guest');
 
     // パスワードリセット
-    Route::get('/forgot-password', PasswordReset::class)->name('password.request');
-    Route::get('/reset-password/{token}', NewPassword::class)->name('password.reset');
-
-});
-
-Route::prefix('admin')->group(function () {
+    Route::get('/forgot-password', PasswordReset::class)->name('password.request')->middleware('guest');
+    Route::get('/reset-password/{token}', NewPassword::class)->name('password.reset')->middleware('guest');
 
     // ログアウト
-    Route::post('/logout', LogoutController::class)->name('logout');
+    Route::post('/logout', LogoutController::class)->name('logout')->middleware('auth');
 
     // 登録
-    Route::get('/register', Register::class)->name('register');
+    Route::get('/register', Register::class)->name('register')->middleware('auth');
 
     // メール認証
+    Route::get('/email/verify', EmailVerify::class)->name('verification.notice')->middleware('auth');
+    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+        $request->fulfill();
+        session()->flash('status', )
+        return redirect(route('dashboard'));
+    })->middleware(['auth', 'signed'])->name('verification.verify');
 
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
