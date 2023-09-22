@@ -16,28 +16,20 @@
     <!-- The navbar with `sticky` and `full-width` -->
     <x-nav sticky full-width>
 
-
-        <x-slot:brand class="shadow-md">
+        <x-slot:brand>
             <!-- Drawer toggle for "main-drawer" -->
             <label for="main-drawer" class="lg:hidden mr-3">
                 <x-icon name="o-bars-3" class="cursor-pointer" />
             </label>
 
             <!-- Your logo -->
-            <span class="text-xl font-semibold">My App</span>
+            My App
         </x-slot:brand>
 
         <!-- Right side actions -->
         <x-slot:actions>
-            <x-dropdown right label="localdisk" class="bg-white border-none text-lg font-normal">
-                @auth
-                    <form action="{{ route('logout') }}" method="POST" x-data>
-                        @csrf
-                        <x-menu-item title="Logtout" icon="o-arrow-right-on-rectangle" @click.prevent="$root.submit();"
-                            class="text-base" />
-                    </form>
-                @endauth
-            </x-dropdown>
+            <a href="###"><x-icon name="o-envelope" /> Messages</a>
+            <a href="###"><x-icon name="o-bell" /> Notifications</a>
         </x-slot:actions>
     </x-nav>
 
@@ -46,30 +38,22 @@
 
         <!-- It is a sidebar that works also as a drawer at small screens -->
         <!-- Note `main-drawer` reference here -->
-        <x-slot:sidebar drawer="main-drawer" class="bg-white shadow !overflow-y-hidden">
+        <x-slot:sidebar drawer="main-drawer" class="bg-slate-200">
 
             <!-- Activate menu item when route matches `link` property -->
-            <x-menu activate-by-route active-bg-color="bg-white">
-                <x-menu-item title="Home" icon="o-home" class="text-lg" link="###" />
-                <x-menu-sub title="Post" icon="o-pencil-square" class="text-lg" link="###">
-                    <x-menu-item title="List" icon="o-list-bullet" class="text-lg" />
-                    <x-menu-item title="Create" icon="o-pencil-square" class="text-lg" />
-                </x-menu-sub>
-                <x-menu-sub title="Tag" icon="o-tag" class="text-lg" link="###">
-                    <x-menu-item title="List" icon="o-list-bullet" class="text-lg" />
-                    <x-menu-item title="Create" icon="o-pencil-square" class="text-lg" />
-                </x-menu-sub>
+            <x-menu activate-by-route>
+                <x-menu-item title="Home" icon="o-home" link="###" />
+                <x-menu-item title="Messages" icon="o-envelope" link="###" />
             </x-menu>
         </x-slot:sidebar>
 
         <!-- The `$slot` goes here -->
-        <x-slot:content class="!p-0 bg-gray-100">
-            <div class="p-5">
-                {{ $slot }}
-            </div>
+        <x-slot:content class="-mx-72">
+            {{ $slot }}
         </x-slot:content>
+
+        <!-- Footer area -->
     </x-main>
-    @stack('script')
 </body>
 
 </html>
