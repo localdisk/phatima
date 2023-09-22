@@ -28,8 +28,14 @@
 
         <!-- Right side actions -->
         <x-slot:actions>
-            <a href="###"><x-icon name="o-envelope" /> Messages</a>
-            <a href="###"><x-icon name="o-bell" /> Notifications</a>
+            @auth
+                <x-dropdown label="{{ auth()->user()->name }}" right class="bg-white border-none font-normal text-base">
+                    <form action="{{ route('logout') }}">
+                        <x-menu-item title="Logout" icon="o-arrow-right-on-rectangle" link="###"
+                            class="px-6 text-base" />
+                    </form>
+                </x-dropdown>
+            @endauth
         </x-slot:actions>
     </x-nav>
 
@@ -42,7 +48,7 @@
 
             <!-- Activate menu item when route matches `link` property -->
             <x-menu activate-by-route>
-                <x-menu-item title="Home" icon="o-home" link="###" />
+                <x-menu-item title="Home" icon="o-home" link="{{ route('dashboard') }}" />
                 <x-menu-item title="Messages" icon="o-envelope" link="###" />
             </x-menu>
         </x-slot:sidebar>
