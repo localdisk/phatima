@@ -49,14 +49,15 @@
             <!-- Activate menu item when route matches `link` property -->
             <x-menu activate-by-route>
                 <x-menu-item title="Home" icon="o-home" link="{{ route('dashboard') }}" />
+                <x-menu-item title="user" icon="o-user" link="#" />
                 <x-menu-item title="Messages" icon="o-envelope" link="###" />
             </x-menu>
         </x-slot:sidebar>
 
         <!-- The `$slot` goes here -->
         <x-slot:content class="!p-0 bg-gray-50">
-            <div class="flex justify-center mt-8">
-                <x-card class="w-2/3">
+            <div class="flex justify-center mt-12">
+                <x-card class="w-3/4">
                     {{ $slot }}
                 </x-card>
             </div>

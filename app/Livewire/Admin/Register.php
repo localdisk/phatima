@@ -35,7 +35,7 @@ class Register extends Component
         return $this->redirect(Dashboard::class);
     }
 
-    #[Layout('layouts.guest')]
+    #[Layout('layouts.app')]
     public function render(): View|Factory
     {
         return view('livewire.admin.register');
