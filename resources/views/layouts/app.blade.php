@@ -23,7 +23,7 @@
             </label>
 
             <!-- Your logo -->
-            My App
+            {{ config('app.name') }}
         </x-slot:brand>
 
         <!-- Right side actions -->
