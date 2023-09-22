@@ -1,7 +1,7 @@
-<div class="bg-gray-100">
+<div class="bg-gray-50">
     <form wire:submit="register" method="POST" class="w-screen h-screen flex justify-center items-center">
-        <div class="bg-gray-100 w-1/5">
-            <x-card title="Register" shadow separator class="w-full">
+        <div class="w-1/5">
+            <x-card title="Register" shadow separator class="w-full shadow-md">
                 <div class="mb-6">
                     <x-input wire:model="form.name" label="Name" placeholder="Name" type="text" class="no-border" />
                 </div>

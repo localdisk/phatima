@@ -1,4 +1,4 @@
-<div class="bg-gray-100">
+<div class="bg-gray-50">
     @if (session()->has('status'))
         <div class="mb-6 ">
             <x-alert icon="o-exclamation-triangle"
@@ -8,8 +8,8 @@
         </div>
     @endif
     <form wire:submit="login" method="POST" class="w-screen h-screen flex justify-center items-center">
-        <div class="bg-gray-100 w-1/5">
-            <x-card title="Login" shadow separator class="w-full">
+        <div class="w-1/5">
+            <x-card title="Login" shadow separator class="w-full shadow-md">
                 <div class="mb-6">
                     <x-input label="Email" wire:model="form.email" name="email" placeholder="Mail Address"
                         type="email" class="no-border" />
