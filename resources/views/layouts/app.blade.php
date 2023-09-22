@@ -38,7 +38,7 @@
 
         <!-- It is a sidebar that works also as a drawer at small screens -->
         <!-- Note `main-drawer` reference here -->
-        <x-slot:sidebar drawer="main-drawer" class="bg-slate-200">
+        <x-slot:sidebar drawer="main-drawer" class="border-r">
 
             <!-- Activate menu item when route matches `link` property -->
             <x-menu activate-by-route>
@@ -48,11 +48,10 @@
         </x-slot:sidebar>
 
         <!-- The `$slot` goes here -->
-        <x-slot:content class="-mx-72">
+        <x-slot:content>
             {{ $slot }}
         </x-slot:content>
 
-        <!-- Footer area -->
     </x-main>
 </body>
 
