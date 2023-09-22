@@ -49,7 +49,11 @@
 
         <!-- The `$slot` goes here -->
         <x-slot:content class="!p-0 bg-gray-50">
-            {{ $slot }}
+            <div class="flex justify-center mt-8">
+                <x-card class="w-2/3">
+                    {{ $slot }}
+                </x-card>
+            </div>
         </x-slot:content>
 
     </x-main>
