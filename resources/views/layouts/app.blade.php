@@ -48,7 +48,7 @@
         </x-slot:sidebar>
 
         <!-- The `$slot` goes here -->
-        <x-slot:content>
+        <x-slot:content class="!p-0 bg-gray-50">
             {{ $slot }}
         </x-slot:content>
 
