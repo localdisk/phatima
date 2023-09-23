@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    summary {
-        @apply text-lg;
-    }
-}
-
 .no-border {
     @apply border-base-300
 }
