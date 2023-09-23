@@ -10,7 +10,7 @@ class UserList extends Component
     public function render()
     {
         return view('livewire.admin.user-list', [
-            'users' => User::orderBy('id')->paginate(1),
+            'users' => User::orderBy('id')->paginate(10),
         ]);
     }
 }

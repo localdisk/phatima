@@ -10,6 +10,10 @@
     @apply rounded-sm
 }
 
-th{
+th {
     @apply p-5
+}
+
+td {
+    @apply px-6 py-4
 }
