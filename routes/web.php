@@ -51,7 +51,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         return redirect(route('dashboard'));
     })->middleware(['auth', 'signed'])->name('verification.verify');
 
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/dashboard', Dashboard::class)->name('dashboard')->middleware(['auth', 'verified']);
 
 })->middleware([
     // 作り終わったら
