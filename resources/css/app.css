@@ -9,3 +9,7 @@
 .rounded-box {
     @apply rounded-sm
 }
+
+th{
+    @apply p-5
+}
