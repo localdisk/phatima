@@ -30,8 +30,10 @@
         <x-slot:actions>
             @auth
                 <x-dropdown label="{{ auth()->user()->name }}" right class="bg-white border-none font-normal text-base">
-                    <form action="{{ route('admin.logout') }}">
-                        <x-menu-item title="Logout" icon="o-arrow-right-on-rectangle" link="###"
+                    <form method="POST" action="{{ route('admin.logout') }}" x-data>
+                        @csrf
+
+                        <x-menu-item title="Logout" icon="o-arrow-right-on-rectangle" @click.prevent="$root.submit();"
                             class="px-6 text-base" />
                     </form>
                 </x-dropdown>

@@ -22,7 +22,7 @@
                     <x-checkbox label="ログインしたままにする" wire:model="form.remember" class="no-border" />
                 </div>
                 <div>
-                    <a href="{{ route('password.request') }}">パスワードを忘れた場合</a>
+                    <a href="{{ route('admin.password.request') }}">パスワードを忘れた場合</a>
                 </div>
                 <x-button type="submit" label="Login" class="btn-primary w-full !text-white text-lg mt-6" />
             </x-card>
