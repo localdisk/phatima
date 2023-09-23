@@ -49,7 +49,10 @@
             <!-- Activate menu item when route matches `link` property -->
             <x-menu activate-by-route>
                 <x-menu-item title="Home" icon="o-home" link="{{ route('dashboard') }}" />
-                <x-menu-item title="user" icon="o-user" link="#" />
+                <x-menu-sub title="User" icon="o-user" class="" link="###">
+                    <x-menu-item title="List" icon="o-list-bullet" />
+                    <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('register') }}" />
+                </x-menu-sub>
                 <x-menu-item title="Messages" icon="o-envelope" link="###" />
             </x-menu>
         </x-slot:sidebar>
