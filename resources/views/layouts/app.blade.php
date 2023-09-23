@@ -30,7 +30,7 @@
         <x-slot:actions>
             @auth
                 <x-dropdown label="{{ auth()->user()->name }}" right class="bg-white border-none font-normal text-base">
-                    <form action="{{ route('logout') }}">
+                    <form action="{{ route('admin.logout') }}">
                         <x-menu-item title="Logout" icon="o-arrow-right-on-rectangle" link="###"
                             class="px-6 text-base" />
                     </form>
@@ -48,10 +48,10 @@
 
             <!-- Activate menu item when route matches `link` property -->
             <x-menu activate-by-route>
-                <x-menu-item title="Home" icon="o-home" link="{{ route('dashboard') }}" />
-                <x-menu-sub title="User" icon="o-user" class="" link="###">
-                    <x-menu-item title="List" icon="o-list-bullet" />
-                    <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('register') }}" />
+                <x-menu-item title="Home" icon="o-home" link="{{ route('admin.dashboard') }}" />
+                <x-menu-sub title="User" icon="o-user">
+                    <x-menu-item title="List" icon="o-list-bullet" link="{{ route('admin.users') }}" />
+                    <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('admin.register') }}" />
                 </x-menu-sub>
                 <x-menu-item title="Messages" icon="o-envelope" link="###" />
             </x-menu>
