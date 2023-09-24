@@ -71,6 +71,7 @@
             </div>
         </x-slot:content>
     </x-main>
+    @stack('scripts')
 </body>
 
 </html>
