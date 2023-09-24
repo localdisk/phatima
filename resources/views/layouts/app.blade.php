@@ -55,7 +55,10 @@
                     <x-menu-item title="List" icon="o-list-bullet" link="{{ route('admin.users') }}" />
                     <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('admin.register') }}" />
                 </x-menu-sub>
-                <x-menu-item title="Messages" icon="o-envelope" link="###" />
+                <x-menu-sub title="Post" icon="o-pencil">
+                    <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('admin.register.post') }}" />
+                </x-menu-sub>
+                <x-menu-item title="Tag" icon="o-tag" link="###" />
             </x-menu>
         </x-slot:sidebar>
 

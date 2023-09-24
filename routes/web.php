@@ -7,6 +7,7 @@ use App\Livewire\Admin\EmailVerify;
 use App\Livewire\Admin\Login as AdminLogin;
 use App\Livewire\Admin\NewPassword;
 use App\Livewire\Admin\Register;
+use App\Livewire\Admin\RegisterPost;
 use App\Livewire\Admin\UserList;
 use App\Livewire\Dashboard;
 use App\Livewire\PasswordReset;
@@ -42,6 +43,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/register', Register::class)->name('register')->middleware(['auth', 'verified']);
     // ユーザー一覧
     Route::get('/users', UserList::class)->name('users')->middleware(['auth', 'verified']);
+
+    // ポスト登録
+    Route::get('/post/store', RegisterPost::class)->name('register.post')->middleware(['auth', 'verified']);
 
     // メール認証
     Route::get('/email/verify', EmailVerify::class)->name('verification.notice')->middleware('auth');
