@@ -52,6 +52,10 @@
                 //     // ...
                 //     plugins: [codeSyntaxHighlight]
                 // });
+
+                editor.on('change', function(data) {
+                    console.log(editor.getMarkdown());
+                })
             })
         </script>
     @endpush
