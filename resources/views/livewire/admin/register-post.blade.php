@@ -40,19 +40,8 @@
                     el: document.querySelector('#editor'),
                     initialEditType: 'markdown',
                     toolbarItems: [],
+                    plugins: [codeSyntaxHighlight],
                 });
-                // const {
-                //     Editor
-                // } = toastui;
-                // const {
-                //     codeSyntaxHighlight
-                // } = Editor.plugin;
-
-                // const instance = new Editor({
-                //     // ...
-                //     plugins: [codeSyntaxHighlight]
-                // });
-
                 editor.on('change', function(data) {
                     console.log(editor.getMarkdown());
                 })
