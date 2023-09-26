@@ -8,6 +8,7 @@ use App\Livewire\Admin\Login as AdminLogin;
 use App\Livewire\Admin\NewPassword;
 use App\Livewire\Admin\Register;
 use App\Livewire\Admin\RegisterPost;
+use App\Livewire\Admin\RegisterTag;
 use App\Livewire\Admin\UserList;
 use App\Livewire\Dashboard;
 use App\Livewire\PasswordReset;
@@ -46,6 +47,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     // ポスト登録
     Route::get('/post/store', RegisterPost::class)->name('register.post')->middleware(['auth', 'verified']);
+
+    // タグ登録
+    Route::get('/tag/store', RegisterTag::class)->name('register.tag')->middleware(['auth', 'verified']);
 
     // メール認証
     Route::get('/email/verify', EmailVerify::class)->name('verification.notice')->middleware('auth');
