@@ -58,7 +58,9 @@
                 <x-menu-sub title="Post" icon="o-pencil">
                     <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('admin.register.post') }}" />
                 </x-menu-sub>
-                <x-menu-item title="Tag" icon="o-tag" link="###" />
+                <x-menu-sub title="Tag" icon="o-tag" link="###">
+                    <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('admin.register.tag') }}" />
+                </x-menu-sub>
             </x-menu>
         </x-slot:sidebar>
 
