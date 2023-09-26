@@ -50,16 +50,19 @@
 
             <!-- Activate menu item when route matches `link` property -->
             <x-menu activate-by-route>
-                <x-menu-item title="Home" icon="o-home" link="{{ route('admin.dashboard') }}" />
+                <x-menu-item title="Home" icon="o-home" wire:navigate link="{{ route('admin.dashboard') }}" />
                 <x-menu-sub title="User" icon="o-user">
-                    <x-menu-item title="List" icon="o-list-bullet" link="{{ route('admin.users') }}" />
-                    <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('admin.register') }}" />
+                    <x-menu-item title="List" icon="o-list-bullet" wire:navigate link="{{ route('admin.users') }}" />
+                    <x-menu-item title="Create" icon="o-pencil-square" wire:navigate
+                        link="{{ route('admin.register') }}" />
                 </x-menu-sub>
                 <x-menu-sub title="Post" icon="o-pencil">
-                    <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('admin.register.post') }}" />
+                    <x-menu-item title="Create" icon="o-pencil-square" wire:navigate
+                        link="{{ route('admin.register.post') }}" />
                 </x-menu-sub>
                 <x-menu-sub title="Tag" icon="o-tag" link="###">
-                    <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('admin.register.tag') }}" />
+                    <x-menu-item title="Create" icon="o-pencil-square" wire:navigate
+                        link="{{ route('admin.register.tag') }}" />
                 </x-menu-sub>
             </x-menu>
         </x-slot:sidebar>

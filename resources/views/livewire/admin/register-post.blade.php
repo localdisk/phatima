@@ -4,6 +4,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" />
         <link rel="stylesheet"
             href="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight.min.css" />
+        <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js" data-navigate-track></script>
+        <script
+            src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"
+            data-navigate-track></script>
     @endpush
     <div>
         <form wire:submit="" method="POST">
@@ -24,30 +28,47 @@
         </form>
     </div>
     @push('scripts')
-        <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+        {{-- <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js" data-navigate-track></script>
         <script
-            src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js">
-        </script>
+            src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"
+            data-navigate-track></script> --}}
         <script>
-            document.addEventListener('livewire:init', () => {
-                Livewire.hook('component.init', ({
-                    component
-                }) => {
-                    const {
-                        Editor
-                    } = toastui;
-                    const {
-                        codeSyntaxHighlight
-                    } = Editor.plugin;
-                    const editor = new Editor({
-                        el: document.querySelector('#editor'),
-                        initialEditType: 'markdown',
-                        toolbarItems: [],
-                        plugins: [codeSyntaxHighlight],
-                    });
-                    editor.on('change', function(data) {
-                        console.log(editor.getMarkdown());
-                    })
+            // document.addEventListener('livewire:init', () => {
+            //     Livewire.hook('component.init', ({
+            //         component
+            //     }) => {
+            //         const {
+            //             Editor
+            //         } = toastui;
+            //         const {
+            //             codeSyntaxHighlight
+            //         } = Editor.plugin;
+            //         const editor = new Editor({
+            //             el: document.querySelector('#editor'),
+            //             initialEditType: 'markdown',
+            //             toolbarItems: [],
+            //             plugins: [codeSyntaxHighlight],
+            //         });
+            //         editor.on('change', function(data) {
+            //             console.log(editor.getMarkdown());
+            //         })
+            //     })
+            // })
+            document.addEventListener('livewire:navigated', () => {
+                const {
+                    Editor
+                } = toastui;
+                const {
+                    codeSyntaxHighlight
+                } = Editor.plugin;
+                const editor = new Editor({
+                    el: document.querySelector('#editor'),
+                    initialEditType: 'markdown',
+                    toolbarItems: [],
+                    plugins: [codeSyntaxHighlight],
+                });
+                editor.on('change', function(data) {
+                    console.log(editor.getMarkdown());
                 })
             })
         </script>
