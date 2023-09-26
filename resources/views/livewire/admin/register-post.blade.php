@@ -28,11 +28,32 @@
         </form>
     </div>
     @push('scripts')
-        {{-- <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js" data-navigate-track></script>
+        <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js" data-navigate-track></script>
         <script
             src="https://uicdn.toast.com/editor-plugin-code-syntax-highlight/latest/toastui-editor-plugin-code-syntax-highlight-all.min.js"
-            data-navigate-track></script> --}}
+            data-navigate-track></script>
         <script>
+            document.addEventListener('livewire:init', () => {
+                Livewire.hook('component.init', ({
+                    component
+                }) => {
+                    const {
+                        Editor
+                    } = toastui;
+                    const {
+                        codeSyntaxHighlight
+                    } = Editor.plugin;
+                    const editor = new Editor({
+                        el: document.querySelector('#editor'),
+                        initialEditType: 'markdown',
+                        toolbarItems: [],
+                        plugins: [codeSyntaxHighlight],
+                    });
+                    editor.on('change', function(data) {
+                        console.log(editor.getMarkdown());
+                    })
+                })
+            })
             // document.addEventListener('livewire:init', () => {
             //     Livewire.hook('component.init', ({
             //         component
@@ -54,23 +75,6 @@
             //         })
             //     })
             // })
-            document.addEventListener('livewire:navigated', () => {
-                const {
-                    Editor
-                } = toastui;
-                const {
-                    codeSyntaxHighlight
-                } = Editor.plugin;
-                const editor = new Editor({
-                    el: document.querySelector('#editor'),
-                    initialEditType: 'markdown',
-                    toolbarItems: [],
-                    plugins: [codeSyntaxHighlight],
-                });
-                editor.on('change', function(data) {
-                    console.log(editor.getMarkdown());
-                })
-            })
         </script>
     @endpush
 </div>
