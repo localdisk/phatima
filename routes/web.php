@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Admin\LogoutController;
+use App\Livewire\Admin\EditTag;
 use App\Livewire\Admin\EmailVerify;
 use App\Livewire\Admin\Login as AdminLogin;
 use App\Livewire\Admin\NewPassword;
@@ -58,9 +59,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/post/store', RegisterPost::class)->name('register.post')->middleware(['auth', 'verified']);
 
     // タグ登録
-    Route::get('/tags/store', RegisterTag::class)->name('register.tag')->middleware(['auth', 'verified']);
+    Route::get('/tags/create', RegisterTag::class)->name('register.tag')->middleware(['auth', 'verified']);
     // タグリスト
     Route::get('/tags', TagList::class)->name('tags')->middleware(['auth', 'verified']);
+    // タグ編集
+    Route::get('/tags/{id}/edit', EditTag::class)->name('tags.edit')->middleware(['auth', 'verified']);
 
     Route::get('/dashboard', Dashboard::class)->name('dashboard')->middleware(['auth', 'verified']);
 

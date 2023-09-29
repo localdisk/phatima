@@ -32,7 +32,8 @@
                                 {{ $tag->created_at }}
                             </td>
                             <td class="flex items-center space-x-3">
-                                <a href="#" class="font-medium link link-primary">
+                                <a href="{{ route('admin.tags.edit', [$tag->id]) }}"
+                                    class="font-medium link link-primary">
                                     <x-icon name="o-pencil-square" />
                                 </a>
                                 <a href="#" class="font-medium link link-error">
