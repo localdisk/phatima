@@ -30,8 +30,6 @@ class NewPassword extends Component
     {
         $this->validate();
 
-        $password = $this->password;
-
         $status = Password::reset([
             'email' => $this->email,
             'password' => $this->password,

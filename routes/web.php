@@ -9,6 +9,7 @@ use App\Livewire\Admin\NewPassword;
 use App\Livewire\Admin\Register;
 use App\Livewire\Admin\RegisterPost;
 use App\Livewire\Admin\RegisterTag;
+use App\Livewire\Admin\TagList;
 use App\Livewire\Admin\UserList;
 use App\Livewire\Dashboard;
 use App\Livewire\PasswordReset;
@@ -28,6 +29,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return 'home';
 })->name('home');
+
+// メール認証
+Route::get('/email/verify', EmailVerify::class)->name('verification.notice')->middleware('auth');
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect(route('admin.dashboard'));
+})->name('verification.verify');
 
 Route::prefix('admin')->name('admin.')->group(function () {
     // ログイン/ログアウト
@@ -49,15 +58,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/post/store', RegisterPost::class)->name('register.post')->middleware(['auth', 'verified']);
 
     // タグ登録
-    Route::get('/tag/store', RegisterTag::class)->name('register.tag')->middleware(['auth', 'verified']);
-
-    // メール認証
-    Route::get('/email/verify', EmailVerify::class)->name('verification.notice')->middleware('auth');
-    Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-        $request->fulfill();
-
-        return redirect(route('dashboard'));
-    })->middleware(['auth', 'signed'])->name('verification.verify');
+    Route::get('/tags/store', RegisterTag::class)->name('register.tag')->middleware(['auth', 'verified']);
+    // タグリスト
+    Route::get('/tags', TagList::class)->name('tags')->middleware(['auth', 'verified']);
 
     Route::get('/dashboard', Dashboard::class)->name('dashboard')->middleware(['auth', 'verified']);
 

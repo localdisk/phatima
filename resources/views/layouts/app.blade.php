@@ -52,13 +52,14 @@
             <x-menu activate-by-route>
                 <x-menu-item title="Home" icon="o-home" link="{{ route('admin.dashboard') }}" />
                 <x-menu-sub title="User" icon="o-user">
-                    <x-menu-item title="List" icon="o-list-bullet" wire:navigate link="{{ route('admin.users') }}" />
+                    <x-menu-item title="List" icon="o-list-bullet" link="{{ route('admin.users') }}" />
                     <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('admin.register') }}" />
                 </x-menu-sub>
                 <x-menu-sub title="Post" icon="o-pencil">
                     <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('admin.register.post') }}" />
                 </x-menu-sub>
-                <x-menu-sub title="Tag" icon="o-tag" link="###">
+                <x-menu-sub title="Tag" icon="o-tag">
+                    <x-menu-item title="List" icon="o-list-bullet" link="{{ route('admin.tags') }}" />
                     <x-menu-item title="Create" icon="o-pencil-square" link="{{ route('admin.register.tag') }}" />
                 </x-menu-sub>
             </x-menu>
