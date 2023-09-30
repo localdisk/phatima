@@ -51,7 +51,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/logout', LogoutController::class)->name('logout')->middleware(['auth', 'verified']);
 
     // ユーザー登録
-    Route::get('/register', Register::class)->name('register')->middleware(['auth', 'verified']);
+    Route::get('/users/create', Register::class)->name('register')->middleware(['auth', 'verified']);
     // ユーザー一覧
     Route::get('/users', UserList::class)->name('users')->middleware(['auth', 'verified']);
 
