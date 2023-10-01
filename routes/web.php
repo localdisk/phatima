@@ -59,7 +59,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/post/create', RegisterPost::class)->name('posts.create')->middleware(['auth', 'verified']);
 
     // タグ登録
-    Route::get('/tags/create', RegisterTag::class)->name('register.tag')->middleware(['auth', 'verified']);
+    Route::get('/tags/create', RegisterTag::class)->name('tags.create')->middleware(['auth', 'verified']);
     // タグリスト
     Route::get('/tags', TagList::class)->name('tags')->middleware(['auth', 'verified']);
     // タグ編集
