@@ -1,5 +1,5 @@
 <div class="bg-gray-100">
-    @if (session('message'))
+    @if (session('status'))
         <x-alert icon="o-check-circle" class="alert-success flex justify-center ">
             <p>{{ __('passwords.sent') }}</p>
         </x-alert>
