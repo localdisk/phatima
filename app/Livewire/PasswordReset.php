@@ -19,7 +19,7 @@ class PasswordReset extends Component
 
         $status = Password::sendResetLink(['email' => $this->form->email]);
 
-        session()->flash('message', __($status));
+        session()->flash('status', __($status));
 
         return $this->redirect(PasswordReset::class);
     }
