@@ -1,4 +1,10 @@
 <div>
+    @if (session('status'))
+        <x-alert icon="o-check-circle" class="alert-success flex justify-center ">
+            <p>{{ session('status') }}</p>
+        </x-alert>
+    @endif
+
     <x-card title="Tag List" shadow separator class="w-full shadow-md">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -36,7 +42,7 @@
                                     class="font-medium link link-primary">
                                     <x-icon name="o-pencil-square" />
                                 </a>
-                                <a href="#" class="font-medium link link-error">
+                                <a wire:click="" class="font-medium link link-error">
                                     <x-icon name="o-trash" />
                                 </a>
                             </td>
