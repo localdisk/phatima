@@ -7,6 +7,13 @@ use Livewire\Component;
 
 class TagList extends Component
 {
+    public bool $myModal = false;
+
+    public function confirm(int $id)
+    {
+
+    }
+
     public function delete($id)
     {
         Tag::findOrFail($id)->delete();

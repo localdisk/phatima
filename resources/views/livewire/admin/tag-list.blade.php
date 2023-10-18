@@ -5,6 +5,15 @@
         </x-alert>
     @endif
 
+    {{-- modal --}}
+    <x-modal wire:model="myModal" title="Hello" subtitle="Livewire example" separator>
+        Click "cancel" or press ESC to exit.
+        <x-slot:actions>
+            <x-button label="Cancel" @click="$wire.myModal = false" />
+            <x-button label="Confirm" class="btn-primary" />
+        </x-slot:actions>
+    </x-modal>
+
     <x-card title="Tag List" shadow separator class="w-full shadow-md">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -42,7 +51,7 @@
                                     class="font-medium link link-primary">
                                     <x-icon name="o-pencil-square" />
                                 </a>
-                                <a wire:click="" class="font-medium link link-error">
+                                <a wire:click="confirm({{ $tag->id }})" class="font-medium link link-error">
                                     <x-icon name="o-trash" />
                                 </a>
                             </td>
